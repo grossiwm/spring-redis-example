@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'com.springredis'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/redis.clients/jedis
+	implementation group: 'redis.clients', name: 'jedis', version: '4.3.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+	annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.4'
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.5.0'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.4'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
